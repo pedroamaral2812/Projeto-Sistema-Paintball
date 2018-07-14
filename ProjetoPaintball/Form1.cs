@@ -73,8 +73,15 @@ namespace ProjetoPaintball
                 {
                     // Informa ao usuario que o login feito corretamente
                     MessageBox.Show("Logado com sucesso", "ENTRANDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     //Fecha a tela de login
-                    this.Close();
+                    this.Hide();
+                    
+                    //Chama o Menu principal
+                    var telaPrincipal = new TelaPrincipal();
+                    telaPrincipal.Show();
+
+            
                 }
                 else
                 {

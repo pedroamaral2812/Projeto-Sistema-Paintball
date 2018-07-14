@@ -37,7 +37,6 @@ namespace ProjetoPaintball.DAO
             //Passa as informações pelo parametro
             cmd.Parameters.AddWithValue("@login", login);
             cmd.Parameters.AddWithValue("@senha", senha);
-
             
             try
             {
