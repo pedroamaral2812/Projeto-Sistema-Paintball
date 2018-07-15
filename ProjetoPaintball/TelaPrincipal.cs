@@ -34,5 +34,15 @@ namespace ProjetoPaintball
             CadUsuario cadUsuario = new CadUsuario();
             cadUsuario.ShowDialog();
         }
+
+        private void TelaPrincipal_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

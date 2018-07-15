@@ -4,11 +4,19 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjetoPaintball.DAO
 {
     class LoginDAOComando
     {
+        //Variavel global para receber o codigo do usuario
+        public string varpub_string_CodUsuario = "";
+
+        //Variavel global para receber o codigo do paintball
+        public string varpub_string_CodPaintball = "";
+        
+
         //Cria variavel para receber o status do login
         public bool varpub_bool_loginStatus;
 
@@ -48,6 +56,14 @@ namespace ProjetoPaintball.DAO
                 {
                     //A variavel adquire o status de verdadeira
                     varpub_bool_loginStatus = true;
+
+                    //Faz um while para gravar o codigo do usuario e o codigo do estabelecimento 
+                    while (dr.Read())
+                    {
+                        //Grava nas  variaveis os valores
+                        varpub_string_CodUsuario = dr["SGJP_USUID"].ToString();
+                        varpub_string_CodPaintball = dr["SGJP_USUPAINTBALL"].ToString();
+                    }
                 }
             }catch(SqlException)
             {

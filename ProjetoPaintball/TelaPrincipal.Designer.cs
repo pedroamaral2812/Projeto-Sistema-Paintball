@@ -32,8 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // configuraçõesToolStripMenuItem
             // 
@@ -63,12 +64,6 @@
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
             // 
-            // consultarToolStripMenuItem
-            // 
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.consultarToolStripMenuItem.Text = "Consultar";
-            // 
             // cadastroDeUsuárioToolStripMenuItem
             // 
             this.cadastroDeUsuárioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastroDeUsuárioToolStripMenuItem.Image")));
@@ -77,6 +72,12 @@
             this.cadastroDeUsuárioToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.cadastroDeUsuárioToolStripMenuItem.Text = "Cadastro de Usuário";
             this.cadastroDeUsuárioToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUsuárioToolStripMenuItem_Click);
+            // 
+            // consultarToolStripMenuItem
+            // 
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // TelaPrincipal
             // 
@@ -94,6 +95,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TelaPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.TelaPrincipal_Load);
+            this.Enter += new System.EventHandler(this.TelaPrincipal_Enter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
