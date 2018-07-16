@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadUsuario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tboxNomeUsu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -306,6 +307,8 @@
             // 
             // btnSair
             // 
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSair.Location = new System.Drawing.Point(374, 362);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 35);
@@ -316,12 +319,17 @@
             // 
             // btnLimpar
             // 
+            this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpar.Enabled = false;
+            this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
+            this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpar.Location = new System.Drawing.Point(492, 362);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(120, 35);
             this.btnLimpar.TabIndex = 7;
             this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseCompatibleTextRendering = true;
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
@@ -339,6 +347,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CadUsuario";
@@ -359,9 +368,7 @@
 
         internal System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tboxNomeUsu;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tboxCodUsu;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox ckboxMostraSenha;
@@ -376,7 +383,6 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.TextBox tboxTelefone;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tboxEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox maskedRG;
@@ -384,5 +390,8 @@
         private System.Windows.Forms.TextBox tboxTelefone2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox maskedCPF;
+        public System.Windows.Forms.TextBox tboxEmail;
+        public System.Windows.Forms.TextBox tboxCodUsu;
+        public System.Windows.Forms.TextBox tboxNomeUsu;
     }
 }

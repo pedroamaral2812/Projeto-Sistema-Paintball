@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,62 +22,117 @@ namespace ProjetoPaintball
 
         private void tboxCodUsu_Leave(object sender, EventArgs e)
         {
+            //Cria a classe sqlcommand para poder fazer comandos sql.
+            SqlCommand cmd = new SqlCommand();
+
+            //Cria o objeto para conexao
+            Conexao con = new Conexao();
+
+            //Cria o objeto para receber o dataReader
+            SqlDataReader dr;
+
             //Cria os objetos
             LoginDAOComando loginDAOComando = new LoginDAOComando();
-            AddUsuarioDAO addUsuarioDAO = new AddUsuarioDAO();
-            
-            //Chama a função para procurar o usuario
-            usuario =  addUsuarioDAO.ProcuraUsuario(tboxCodUsu.Text,loginDAOComando.varpub_string_CodPaintball.ToString());
-            
-            //Verifica se não houve retorno
-            if(usuario == "")
+
+            //Monta a query para verificar se existe o usuario
+            cmd.CommandText = " SELECT * " +
+                      " FROM SGJP_USUARIO JOIN PAINTBALL ON SGJP_USUPAINTBALL = PAINTBALL_CODIGO " +
+                      " WHERE SGJP_USUID  = @ID AND " +
+                            " SGJP_USUPAINTBALL = @paintball ";
+                      
+
+            //Passa as informações pelo parametro
+            cmd.Parameters.AddWithValue("@ID", tboxCodUsu.Text);
+            cmd.Parameters.AddWithValue("@paintball", loginDAOComando.varpub_string_CodPaintball);
+
+            try
             {
-                tboxNomeUsu.Text   = "";
-                tboxEmail.Text     = "";
-                maskedCPF.Text     = "";
-                maskedRG.Text      = "";
-                tboxTelefone.Text  = "";
-                tboxTelefone2.Text = "";
-                tboxLogin.Text     = "";
-                tboxSenha.Text     = "";
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
 
-                //Libera o botão de adicionar e limpar
-                btnCadastrar.Enabled = true;
-                btnLimpar.Enabled    = true;
+                //Verifica se retornou alguma linha
+                if (dr.HasRows)
+                {
+                    //Faz um while para gravar as informações em uma variavel 
+                    while (dr.Read())
+                    {
+                        // Insere as informações no text box
+                        tboxNomeUsu.Text = dr["SGJP_USUNOME"].ToString();
+                        tboxEmail.Text = dr["SGJP_USUEMAIL"].ToString();
+                        maskedCPF.Text = dr["SGJP_CPF"].ToString();
+                        maskedRG.Text = dr["SGJP_RG"].ToString();
+                        tboxTelefone.Text = dr["SGJP_USUFONE"].ToString();
+                        tboxTelefone2.Text = dr["SGJP_USUFONE2"].ToString();
+                        tboxLogin.Text = dr["SGJP_USULOGIN"].ToString();
+                        tboxSenha.Text = dr["SGJP_USUSENHA"].ToString();
 
-                //Bloqueia o botão alterar e excluir
-                btnAlterar.Enabled = false;
-                btnExcluir.Enabled = false;
+                        //Libera os botões
+                        btnAlterar.Enabled = true;
+                        btnExcluir.Enabled = true;
+                        btnLimpar.Enabled = true;
 
-                //Libera o checkbox de mostrar senha
-                ckboxMostraSenha.Enabled = true;
+                        //Desativao botão de incluir
+                        btnCadastrar.Enabled = false;
+
+                        //Libera o check box
+                        ckboxMostraSenha.Enabled = true;
+                    }
+                } else
+                {
+                    //Verifica se está preenchido o codigo
+                    if (tboxCodUsu.Text != "")
+                    {
+                                     
+                        //Limpa os texts box
+                        tboxNomeUsu.Text = "";
+                        tboxEmail.Text = "";
+                        maskedCPF.Text = "";
+                        maskedRG.Text = "";
+                        tboxTelefone.Text = "";
+                        tboxTelefone2.Text = "";
+                        tboxLogin.Text = "";
+                        tboxSenha.Text = "";
+
+                        //Libera os botões
+                        btnCadastrar.Enabled = true;
+                        btnLimpar.Enabled = true;
+
+                        //Desativa os botões
+                        btnAlterar.Enabled = false;
+                        btnExcluir.Enabled = false;
+
+                        //Libera o check box
+                        ckboxMostraSenha.Enabled = true;
+
+                    }
+                    //Se não tiver preenchido o codigo do usuario
+                    else
+                    {
+                        //Limpa os texts box
+                        tboxNomeUsu.Text = "";
+                        tboxEmail.Text = "";
+                        maskedCPF.Text = "";
+                        maskedRG.Text = "";
+                        tboxTelefone.Text = "";
+                        tboxTelefone2.Text = "";
+                        tboxLogin.Text = "";
+                        tboxSenha.Text = "";
+
+                        //Desativa os botões
+                        btnCadastrar.Enabled = false;
+                        btnLimpar.Enabled = false;
+                        btnAlterar.Enabled = false;
+                        btnExcluir.Enabled = false;
+
+                        //Deslibera o check box
+                        ckboxMostraSenha.Enabled = false;
+                    }
+
+                }
             }
-            else
+            catch (SqlException)
             {
-                //Bloqueia o botão cadastrar
-                btnCadastrar.Enabled = false;
-
-                //Libera o botão de alterar, excluir e limpar
-                btnAlterar.Enabled = true;
-                btnExcluir.Enabled = true;
-                btnLimpar.Enabled = true;
-
-
-                //Libera o checkbox de mostrar senha
-                ckboxMostraSenha.Enabled = true;
-
-                // Preenche os campos com as informações retornadas
-                //Faz um split
-                string[] itemValores = usuario.Split('|');
-                tboxNomeUsu.Text   = itemValores[1];
-                tboxEmail.Text     = itemValores[2];
-                maskedCPF.Text     = itemValores[3];
-                maskedRG.Text      = itemValores[4];
-                tboxTelefone.Text  = itemValores[5];
-                tboxTelefone2.Text = itemValores[6];
-                tboxLogin.Text     = itemValores[7];
-                tboxSenha.Text     = itemValores[8];
-                
+                MessageBox.Show("Erro!!!", "Erro na procura do usuario ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
 
         }
@@ -132,6 +188,11 @@ namespace ProjetoPaintball
 
             //Dá o foco
             tboxCodUsu.Focus();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -51,7 +51,6 @@
     <Compile Include="CadUsuario.Designer.cs">
       <DependentUpon>CadUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAO\AddUsuarioDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\LoginDAOComando.cs" />
     <Compile Include="DAO\TelaPrincipalDAO.cs" />
