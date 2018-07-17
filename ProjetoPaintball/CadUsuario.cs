@@ -1,4 +1,5 @@
 ﻿using ProjetoPaintball.DAO;
+using ProjetoPaintball.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace ProjetoPaintball
             InitializeComponent();
         }
 
+        //Ao sair do Codigo do usuario
         private void tboxCodUsu_Leave(object sender, EventArgs e)
         {
             //Cria a classe sqlcommand para poder fazer comandos sql.
@@ -56,26 +58,41 @@ namespace ProjetoPaintball
                     //Faz um while para gravar as informações em uma variavel 
                     while (dr.Read())
                     {
-                        // Insere as informações no text box
-                        tboxNomeUsu.Text = dr["SGJP_USUNOME"].ToString();
-                        tboxEmail.Text = dr["SGJP_USUEMAIL"].ToString();
-                        maskedCPF.Text = dr["SGJP_CPF"].ToString();
-                        maskedRG.Text = dr["SGJP_RG"].ToString();
-                        tboxTelefone.Text = dr["SGJP_USUFONE"].ToString();
-                        tboxTelefone2.Text = dr["SGJP_USUFONE2"].ToString();
-                        tboxLogin.Text = dr["SGJP_USULOGIN"].ToString();
-                        tboxSenha.Text = dr["SGJP_USUSENHA"].ToString();
+                        //Pergunta ao usuario se deseja alterar o u excluir um usuario
+                        DialogResult confirmaMensagem = MessageBox.Show("Atenção usuário já existente!! Deseja alterar ou excluir o usuário?", "Usuário já existente",
+                                                        MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation,
+                                                        MessageBoxDefaultButton.Button2);
+                        //Se não confirmar a mensagem.
+                        if (confirmaMensagem.ToString().ToUpper() != "YES")
+                        {
+                            //Chama o função de clicar no botão limpar
+                            btnLimpar_Click(sender, e);
+                        }
+                        //Se apertou yes
+                        else
+                        {
+                            // Insere as informações no text box
+                            tboxNomeUsu.Text = dr["SGJP_USUNOME"].ToString();
+                            tboxEmail.Text = dr["SGJP_USUEMAIL"].ToString();
+                            maskedCPF.Text = dr["SGJP_CPF"].ToString();
+                            maskedRG.Text = dr["SGJP_RG"].ToString();
+                            tboxTelefone.Text = dr["SGJP_USUFONE"].ToString();
+                            tboxTelefone2.Text = dr["SGJP_USUFONE2"].ToString();
+                            tboxLogin.Text = dr["SGJP_USULOGIN"].ToString();
+                            tboxSenha.Text = dr["SGJP_USUSENHA"].ToString();
 
-                        //Libera os botões
-                        btnAlterar.Enabled = true;
-                        btnExcluir.Enabled = true;
-                        btnLimpar.Enabled = true;
+                            //Libera os botões
+                            btnAlterar.Enabled = true;
+                            btnExcluir.Enabled = true;
+                            btnLimpar.Enabled = true;
 
-                        //Desativao botão de incluir
-                        btnCadastrar.Enabled = false;
+                            //Desativao botão de incluir
+                            btnCadastrar.Enabled = false;
 
-                        //Libera o check box
-                        ckboxMostraSenha.Enabled = true;
+                            //Libera o check box
+                            ckboxMostraSenha.Enabled = true;
+                        }
+
                     }
                 } else
                 {
@@ -175,6 +192,9 @@ namespace ProjetoPaintball
             btnExcluir.Enabled = false;
             btnLimpar.Enabled = false;
 
+            //Deslibera o check box
+            ckboxMostraSenha.Enabled = false;
+
             //Limpa os texts box
             tboxCodUsu.Text    = "";
             tboxNomeUsu.Text   = "";
@@ -190,8 +210,115 @@ namespace ProjetoPaintball
             tboxCodUsu.Focus();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            //Cria os objetos necessários
+            CadUsuModel cadUsuModel = new CadUsuModel();
+            LoginDAOComando loginDAOComando = new LoginDAOComando();
+                    
+            //Verifica se adicionou com sucesso o usuario
+            if (cadUsuModel.IncluirUsuario(tboxCodUsu.Text, tboxLogin.Text, tboxSenha.Text, 
+                                           tboxNomeUsu.Text,tboxEmail.Text, 
+                                           loginDAOComando.varpub_string_CodPaintball,
+                                           tboxTelefone.Text, tboxTelefone2.Text, 
+                                           maskedCPF.Text, maskedRG.Text))
+            {
+                MessageBox.Show("Usuario adicionado com sucesso!!", "Exito ao adicionar o usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            //Se não adicionou corretamente o usuario
+            else
+            {
+                MessageBox.Show("Problemas ao adicionar o usuario, favor verificar!!", "Problemas ao adicionar o usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void tboxCodUsu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de colocar espaços ao digitar o email
+            if  (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+                
+        }
+
+        private void maskedCPF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void maskedRG_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxTelefone2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar espaços
+            if  (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tboxSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar espaços
+            if (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            //Cria os objetos necessários
+            CadUsuModel cadUsuModel = new CadUsuModel();
+
+            //Verifica se o codigo do usuario está preenchido
+            if (tboxCodUsu.TextLength < 1 )
+            {
+                MessageBox.Show("Codigo do usuario não preenchido!!", "Codigo não preenchido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                //Verifica se a função retornou verdadeiro
+                if (cadUsuModel.ExcluirUsuario(tboxCodUsu.Text))
+                {
+                    MessageBox.Show("Usuario excluido com sucesso!!", "Exito ao excluir um usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Chama o função de clicar no botão limpar
+                    btnLimpar_Click(sender, e);
+
+                }
+                //Se não excluiu corretamente o usuario
+                else
+                {
+                    MessageBox.Show("Problemas ao excluir o usuario, favor verificar!!", "Problemas ao excluir o usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
         }
     }

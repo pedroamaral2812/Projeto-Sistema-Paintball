@@ -81,6 +81,7 @@
             // tboxNomeUsu
             // 
             this.tboxNomeUsu.Location = new System.Drawing.Point(303, 35);
+            this.tboxNomeUsu.MaxLength = 50;
             this.tboxNomeUsu.Name = "tboxNomeUsu";
             this.tboxNomeUsu.Size = new System.Drawing.Size(277, 26);
             this.tboxNomeUsu.TabIndex = 3;
@@ -102,6 +103,7 @@
             this.tboxCodUsu.Size = new System.Drawing.Size(102, 26);
             this.tboxCodUsu.TabIndex = 1;
             this.tboxCodUsu.TextChanged += new System.EventHandler(this.tboxCodUsu_TextChanged);
+            this.tboxCodUsu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCodUsu_KeyPress);
             this.tboxCodUsu.Leave += new System.EventHandler(this.tboxCodUsu_Leave);
             // 
             // label1
@@ -136,17 +138,19 @@
             // maskedCPF
             // 
             this.maskedCPF.Location = new System.Drawing.Point(298, 35);
-            this.maskedCPF.Mask = "999.999.999-99";
             this.maskedCPF.Name = "maskedCPF";
             this.maskedCPF.Size = new System.Drawing.Size(143, 26);
             this.maskedCPF.TabIndex = 10;
+            this.maskedCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedCPF_KeyPress);
             // 
             // tboxTelefone2
             // 
             this.tboxTelefone2.Location = new System.Drawing.Point(355, 81);
+            this.tboxTelefone2.MaxLength = 20;
             this.tboxTelefone2.Name = "tboxTelefone2";
             this.tboxTelefone2.Size = new System.Drawing.Size(168, 26);
             this.tboxTelefone2.TabIndex = 9;
+            this.tboxTelefone2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTelefone2_KeyPress);
             // 
             // label9
             // 
@@ -160,9 +164,11 @@
             // maskedRG
             // 
             this.maskedRG.Location = new System.Drawing.Point(491, 37);
+            this.maskedRG.MaxLength = 7;
             this.maskedRG.Name = "maskedRG";
             this.maskedRG.Size = new System.Drawing.Size(97, 26);
             this.maskedRG.TabIndex = 7;
+            this.maskedRG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedRG_KeyPress);
             // 
             // label8
             // 
@@ -185,9 +191,11 @@
             // tboxTelefone
             // 
             this.tboxTelefone.Location = new System.Drawing.Point(105, 81);
+            this.tboxTelefone.MaxLength = 20;
             this.tboxTelefone.Name = "tboxTelefone";
             this.tboxTelefone.Size = new System.Drawing.Size(132, 26);
             this.tboxTelefone.TabIndex = 3;
+            this.tboxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTelefone_KeyPress);
             // 
             // label6
             // 
@@ -201,9 +209,11 @@
             // tboxEmail
             // 
             this.tboxEmail.Location = new System.Drawing.Point(77, 35);
+            this.tboxEmail.MaxLength = 50;
             this.tboxEmail.Name = "tboxEmail";
             this.tboxEmail.Size = new System.Drawing.Size(156, 26);
             this.tboxEmail.TabIndex = 1;
+            this.tboxEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxEmail_KeyPress);
             // 
             // label5
             // 
@@ -245,10 +255,12 @@
             // tboxSenha
             // 
             this.tboxSenha.Location = new System.Drawing.Point(328, 40);
+            this.tboxSenha.MaxLength = 10;
             this.tboxSenha.Name = "tboxSenha";
             this.tboxSenha.PasswordChar = '*';
             this.tboxSenha.Size = new System.Drawing.Size(121, 26);
             this.tboxSenha.TabIndex = 3;
+            this.tboxSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxSenha_KeyPress);
             // 
             // label4
             // 
@@ -262,9 +274,11 @@
             // tboxLogin
             // 
             this.tboxLogin.Location = new System.Drawing.Point(102, 38);
+            this.tboxLogin.MaxLength = 10;
             this.tboxLogin.Name = "tboxLogin";
             this.tboxLogin.Size = new System.Drawing.Size(112, 26);
             this.tboxLogin.TabIndex = 1;
+            this.tboxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxLogin_KeyPress);
             // 
             // label3
             // 
@@ -284,6 +298,7 @@
             this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnAlterar
             // 
@@ -304,6 +319,7 @@
             this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSair
             // 
