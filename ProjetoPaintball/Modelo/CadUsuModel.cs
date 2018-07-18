@@ -25,7 +25,7 @@ namespace ProjetoPaintball.Modelo
                                    String nome, String email, String paintball, 
                                    String fone, String fone2, String CPF, String RG)
         {
-            //Monta a query para verificar se existe o usuario
+            //Monta a query para inserir um novo usuario
             cmd.CommandText = "SET IDENTITY_INSERT SGJP_USUARIO on " +
                               "INSERT INTO[dbo].[SGJP_USUARIO] " +
                                 "([SGJP_USUID], "        +
@@ -53,9 +53,6 @@ namespace ProjetoPaintball.Modelo
                                  " @RG) " +
                                  "SET IDENTITY_INSERT SGJP_USUARIO OFF";
                                 
-
-             MessageBox.Show(paintball);
-
             //Passa as informações pelo parametro           
             cmd.Parameters.AddWithValue("@CodUsu", codUsu);
             cmd.Parameters.AddWithValue("@login", login);
@@ -84,10 +81,51 @@ namespace ProjetoPaintball.Modelo
         }
 
         //Cria metodo para alterar o usuario
-        public bool AlterarUsuario(String CodUsu, String Nome, String email, String CPF,
-                                  String RG, String fone, String fone2, String login, String senha)
+        public bool AlterarUsuario(String CodUsu, String login, String senha,
+                                   String Nome,   String email,
+                                   String fone,   String fone2,
+                                   String CPF,    String RG)
         {
-            return false;
+            //Monta a query para atualizar um novo usuario
+            cmd.CommandText = "UPDATE [SGJP_USUARIO] SET " +
+
+                                       //CAMPOS       = VALORES
+                                     "[SGJP_USULOGIN] = @login, " +
+                                     "[SGJP_USUSENHA] = @senha, " +
+                                     "[SGJP_USUNOME]  = @nome, "  +
+                                     "[SGJP_USUEMAIL] = @email, " +
+                                     "[SGJP_USUFONE]  = @fone, "  +
+                                     "[SGJP_USUFONE2] = @fone2, " +
+                                     "[SGJP_CPF]      = @CPF, "   +
+                                     "[SGJP_RG]       = @RG " +
+                                     
+                                     //WHERE CONDIÇÃO   = VALORES
+                                     " WHERE SGJP_USUID =  @CodUsu";
+
+            //Passa as informações pelo parametro           
+            cmd.Parameters.AddWithValue("@CodUsu", CodUsu);
+            cmd.Parameters.AddWithValue("@login", login);
+            cmd.Parameters.AddWithValue("@senha", senha);
+            cmd.Parameters.AddWithValue("@nome", Nome);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@fone", fone);
+            cmd.Parameters.AddWithValue("@fone2", fone2);
+            cmd.Parameters.AddWithValue("@CPF", CPF);
+            cmd.Parameters.AddWithValue("@RG", RG);
+
+            //Inicia a transação
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+
         }
 
         //Cria o metodo para excluir o usuario 

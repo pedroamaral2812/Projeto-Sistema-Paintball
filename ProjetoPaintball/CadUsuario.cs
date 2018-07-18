@@ -91,6 +91,9 @@ namespace ProjetoPaintball
 
                             //Libera o check box
                             ckboxMostraSenha.Enabled = true;
+
+                            //Mudar a cor do text box
+                            tboxCodUsu.BackColor = Color.White;
                         }
 
                     }
@@ -121,6 +124,9 @@ namespace ProjetoPaintball
                         //Libera o check box
                         ckboxMostraSenha.Enabled = true;
 
+                        //Mudar a cor do text box
+                        tboxCodUsu.BackColor = Color.White;
+
                     }
                     //Se não tiver preenchido o codigo do usuario
                     else
@@ -143,6 +149,9 @@ namespace ProjetoPaintball
 
                         //Deslibera o check box
                         ckboxMostraSenha.Enabled = false;
+
+                        //Mudar a cor do text box
+                        tboxCodUsu.BackColor = Color.White;
                     }
 
                 }
@@ -215,22 +224,34 @@ namespace ProjetoPaintball
             //Cria os objetos necessários
             CadUsuModel cadUsuModel = new CadUsuModel();
             LoginDAOComando loginDAOComando = new LoginDAOComando();
-                    
-            //Verifica se adicionou com sucesso o usuario
-            if (cadUsuModel.IncluirUsuario(tboxCodUsu.Text, tboxLogin.Text, tboxSenha.Text, 
-                                           tboxNomeUsu.Text,tboxEmail.Text, 
-                                           loginDAOComando.varpub_string_CodPaintball,
-                                           tboxTelefone.Text, tboxTelefone2.Text, 
-                                           maskedCPF.Text, maskedRG.Text))
+
+            //Verifica se preencheu os campos obrigátorios
+            if ((tboxNomeUsu.TextLength < 1) || (tboxLogin.TextLength < 1) || (tboxSenha.TextLength < 1))
+
             {
-                MessageBox.Show("Usuario adicionado com sucesso!!", "Exito ao adicionar o usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Atenção preencha os campos obrigátorios!!", "Campos obrigatorios não preenchidos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            //Se não adicionou corretamente o usuario
+            //Se preencheu todos os campos obrigatórios
             else
             {
-                MessageBox.Show("Problemas ao adicionar o usuario, favor verificar!!", "Problemas ao adicionar o usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+                //Verifica se adicionou com sucesso o usuario
+                if (cadUsuModel.IncluirUsuario(tboxCodUsu.Text, tboxLogin.Text, tboxSenha.Text,
+                                               tboxNomeUsu.Text, tboxEmail.Text,
+                                               loginDAOComando.varpub_string_CodPaintball,
+                                               tboxTelefone.Text, tboxTelefone2.Text,
+                                               maskedCPF.Text, maskedRG.Text))
+                {
+                    MessageBox.Show("Usuario adicionado com sucesso!!", "Exito ao adicionar o usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                    //Chama o função de clicar no botão limpar
+                    btnLimpar_Click(sender, e);
+                }
+                //Se não adicionou corretamente o usuario
+                else
+                {
+                    MessageBox.Show("Problemas ao adicionar o usuario, favor verificar!!", "Problemas ao adicionar o usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }         
         }
 
         private void tboxCodUsu_KeyPress(object sender, KeyPressEventArgs e)
@@ -320,6 +341,143 @@ namespace ProjetoPaintball
                 }
             }
 
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            //Cria os objetos necessários
+            CadUsuModel cadUsuModel = new CadUsuModel();
+            LoginDAOComando loginDAOComando = new LoginDAOComando();
+
+            //Verifica se preencheu os campos obrigátorios
+            if ((tboxNomeUsu.TextLength < 1) || (tboxLogin.TextLength < 1) || (tboxSenha.TextLength < 1))
+
+            {
+                MessageBox.Show("Atenção preencha os campos obrigátorios!!", "Campos obrigatorios não preenchidos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                //Verifica se alterou com sucesso o usuario
+                if (cadUsuModel.AlterarUsuario(tboxCodUsu.Text, tboxLogin.Text, tboxSenha.Text,
+                                               tboxNomeUsu.Text, tboxEmail.Text,
+                                               tboxTelefone.Text, tboxTelefone2.Text,
+                                               maskedCPF.Text, maskedRG.Text))
+                {
+                    //Avisa ao usuario que deu certo a alteração
+                    MessageBox.Show("Usuario alterado com sucesso!!", "Exito ao alterar o usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Chama o função de clicar no botão limpar
+                    btnLimpar_Click(sender, e);
+                }
+                //Se não alterou corretamente o usuario
+                else
+                {
+                    //Avisa ao usuario que não deu certo a alteração
+                    MessageBox.Show("Problemas ao alterar o usuario, favor verificar!!", "Problemas ao alterar o usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void tboxCodUsu_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxCodUsu.BackColor = Color.Aqua;
+        }
+
+        private void tboxNomeUsu_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxNomeUsu.BackColor = Color.Aqua;
+        }
+
+        private void tboxEmail_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxEmail.BackColor = Color.Aqua;
+        }
+
+        private void maskedCPF_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            maskedCPF.BackColor = Color.Aqua;
+        }
+
+        private void maskedRG_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            maskedRG.BackColor = Color.Aqua;
+        }
+
+        private void tboxTelefone_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxTelefone.BackColor = Color.Aqua;
+        }
+
+        private void tboxTelefone2_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxTelefone2.BackColor = Color.Aqua;
+        }
+
+        private void tboxLogin_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxLogin.BackColor = Color.Aqua;
+        }
+
+        private void tboxSenha_Enter(object sender, EventArgs e)
+        {
+            //Muda para a cor de foco
+            tboxSenha.BackColor = Color.Aqua;
+        }
+
+        private void tboxNomeUsu_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            tboxNomeUsu.BackColor = Color.White;
+        }
+
+        private void tboxEmail_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            tboxEmail.BackColor = Color.White;
+        }
+
+        private void maskedCPF_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            maskedCPF.BackColor = Color.White;
+        }
+
+        private void maskedRG_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            maskedRG.BackColor = Color.White;
+        }
+
+        private void tboxTelefone_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            tboxTelefone.BackColor = Color.White;
+        }
+
+        private void tboxTelefone2_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            tboxTelefone2.BackColor = Color.White;
+        }
+
+        private void tboxLogin_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            tboxLogin.BackColor = Color.White;
+        }
+
+        private void tboxSenha_Leave(object sender, EventArgs e)
+        {
+            //Mudar a cor do text box
+            tboxSenha.BackColor = Color.White;
         }
     }
 }

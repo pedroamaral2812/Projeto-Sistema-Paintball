@@ -56,6 +56,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,26 +84,30 @@
             this.tboxNomeUsu.Location = new System.Drawing.Point(303, 35);
             this.tboxNomeUsu.MaxLength = 50;
             this.tboxNomeUsu.Name = "tboxNomeUsu";
-            this.tboxNomeUsu.Size = new System.Drawing.Size(277, 26);
-            this.tboxNomeUsu.TabIndex = 3;
+            this.tboxNomeUsu.Size = new System.Drawing.Size(285, 26);
+            this.tboxNomeUsu.TabIndex = 2;
+            this.tboxNomeUsu.Enter += new System.EventHandler(this.tboxNomeUsu_Enter);
+            this.tboxNomeUsu.Leave += new System.EventHandler(this.tboxNomeUsu_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(232, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Nome: ";
+            this.label2.Text = "*Nome: ";
             // 
             // tboxCodUsu
             // 
+            this.tboxCodUsu.BackColor = System.Drawing.SystemColors.Window;
             this.tboxCodUsu.Location = new System.Drawing.Point(96, 35);
             this.tboxCodUsu.MaxLength = 14;
             this.tboxCodUsu.Name = "tboxCodUsu";
             this.tboxCodUsu.Size = new System.Drawing.Size(102, 26);
             this.tboxCodUsu.TabIndex = 1;
             this.tboxCodUsu.TextChanged += new System.EventHandler(this.tboxCodUsu_TextChanged);
+            this.tboxCodUsu.Enter += new System.EventHandler(this.tboxCodUsu_Enter);
             this.tboxCodUsu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCodUsu_KeyPress);
             this.tboxCodUsu.Leave += new System.EventHandler(this.tboxCodUsu_Leave);
             // 
@@ -140,8 +145,10 @@
             this.maskedCPF.Location = new System.Drawing.Point(298, 35);
             this.maskedCPF.Name = "maskedCPF";
             this.maskedCPF.Size = new System.Drawing.Size(143, 26);
-            this.maskedCPF.TabIndex = 10;
+            this.maskedCPF.TabIndex = 4;
+            this.maskedCPF.Enter += new System.EventHandler(this.maskedCPF_Enter);
             this.maskedCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedCPF_KeyPress);
+            this.maskedCPF.Leave += new System.EventHandler(this.maskedCPF_Leave);
             // 
             // tboxTelefone2
             // 
@@ -149,8 +156,10 @@
             this.tboxTelefone2.MaxLength = 20;
             this.tboxTelefone2.Name = "tboxTelefone2";
             this.tboxTelefone2.Size = new System.Drawing.Size(168, 26);
-            this.tboxTelefone2.TabIndex = 9;
+            this.tboxTelefone2.TabIndex = 7;
+            this.tboxTelefone2.Enter += new System.EventHandler(this.tboxTelefone2_Enter);
             this.tboxTelefone2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTelefone2_KeyPress);
+            this.tboxTelefone2.Leave += new System.EventHandler(this.tboxTelefone2_Leave);
             // 
             // label9
             // 
@@ -167,8 +176,10 @@
             this.maskedRG.MaxLength = 7;
             this.maskedRG.Name = "maskedRG";
             this.maskedRG.Size = new System.Drawing.Size(97, 26);
-            this.maskedRG.TabIndex = 7;
+            this.maskedRG.TabIndex = 5;
+            this.maskedRG.Enter += new System.EventHandler(this.maskedRG_Enter);
             this.maskedRG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedRG_KeyPress);
+            this.maskedRG.Leave += new System.EventHandler(this.maskedRG_Leave);
             // 
             // label8
             // 
@@ -194,8 +205,10 @@
             this.tboxTelefone.MaxLength = 20;
             this.tboxTelefone.Name = "tboxTelefone";
             this.tboxTelefone.Size = new System.Drawing.Size(132, 26);
-            this.tboxTelefone.TabIndex = 3;
+            this.tboxTelefone.TabIndex = 6;
+            this.tboxTelefone.Enter += new System.EventHandler(this.tboxTelefone_Enter);
             this.tboxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTelefone_KeyPress);
+            this.tboxTelefone.Leave += new System.EventHandler(this.tboxTelefone_Leave);
             // 
             // label6
             // 
@@ -212,8 +225,10 @@
             this.tboxEmail.MaxLength = 50;
             this.tboxEmail.Name = "tboxEmail";
             this.tboxEmail.Size = new System.Drawing.Size(156, 26);
-            this.tboxEmail.TabIndex = 1;
+            this.tboxEmail.TabIndex = 3;
+            this.tboxEmail.Enter += new System.EventHandler(this.tboxEmail_Enter);
             this.tboxEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxEmail_KeyPress);
+            this.tboxEmail.Leave += new System.EventHandler(this.tboxEmail_Leave);
             // 
             // label5
             // 
@@ -259,17 +274,19 @@
             this.tboxSenha.Name = "tboxSenha";
             this.tboxSenha.PasswordChar = '*';
             this.tboxSenha.Size = new System.Drawing.Size(121, 26);
-            this.tboxSenha.TabIndex = 3;
+            this.tboxSenha.TabIndex = 9;
+            this.tboxSenha.Enter += new System.EventHandler(this.tboxSenha_Enter);
             this.tboxSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxSenha_KeyPress);
+            this.tboxSenha.Leave += new System.EventHandler(this.tboxSenha_Leave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(238, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Senha :";
+            this.label4.Text = "*Senha :";
             // 
             // tboxLogin
             // 
@@ -277,25 +294,29 @@
             this.tboxLogin.MaxLength = 10;
             this.tboxLogin.Name = "tboxLogin";
             this.tboxLogin.Size = new System.Drawing.Size(112, 26);
-            this.tboxLogin.TabIndex = 1;
+            this.tboxLogin.TabIndex = 8;
+            this.tboxLogin.Enter += new System.EventHandler(this.tboxLogin_Enter);
             this.tboxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxLogin_KeyPress);
+            this.tboxLogin.Leave += new System.EventHandler(this.tboxLogin_Leave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 20);
+            this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Login :";
+            this.label3.Text = "*Login :";
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.Enabled = false;
-            this.btnCadastrar.Location = new System.Drawing.Point(15, 362);
+            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
+            this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadastrar.Location = new System.Drawing.Point(15, 379);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(125, 35);
-            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.TabIndex = 10;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -303,20 +324,25 @@
             // btnAlterar
             // 
             this.btnAlterar.Enabled = false;
-            this.btnAlterar.Location = new System.Drawing.Point(138, 362);
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.Location = new System.Drawing.Point(138, 379);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(120, 35);
-            this.btnAlterar.TabIndex = 4;
+            this.btnAlterar.TabIndex = 11;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(256, 362);
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluir.Location = new System.Drawing.Point(256, 379);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(120, 35);
-            this.btnExcluir.TabIndex = 5;
+            this.btnExcluir.TabIndex = 12;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -325,10 +351,10 @@
             // 
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(374, 362);
+            this.btnSair.Location = new System.Drawing.Point(374, 379);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 35);
-            this.btnSair.TabIndex = 6;
+            this.btnSair.TabIndex = 13;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -340,21 +366,32 @@
             this.btnLimpar.Enabled = false;
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpar.Location = new System.Drawing.Point(492, 362);
+            this.btnLimpar.Location = new System.Drawing.Point(492, 379);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(120, 35);
-            this.btnLimpar.TabIndex = 7;
+            this.btnLimpar.TabIndex = 14;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseCompatibleTextRendering = true;
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(21, 349);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(163, 17);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "*Campos obrigatórios";
             // 
             // CadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(618, 413);
+            this.ClientSize = new System.Drawing.Size(612, 420);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnExcluir);
@@ -363,6 +400,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -377,6 +415,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -409,5 +448,6 @@
         public System.Windows.Forms.TextBox tboxEmail;
         public System.Windows.Forms.TextBox tboxCodUsu;
         public System.Windows.Forms.TextBox tboxNomeUsu;
+        private System.Windows.Forms.Label label10;
     }
 }
