@@ -14,7 +14,7 @@ namespace ProjetoPaintball.DAO
         public string varpub_string_CodUsuario = "";
 
         //Variavel global para receber o codigo do paintball
-        public string varpub_string_CodPaintball = "";
+        public  string varpub_string_CodPaintball = "";
         
 
         //Cria variavel para receber o status do login

@@ -44,5 +44,12 @@ namespace ProjetoPaintball
         {
 
         }
+
+        private void cadastroDeFuncionárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Chama a tela de cadastro de cargo de funcionario
+            CadCargoFunc cadCargoFunc = new CadCargoFunc();
+            cadCargoFunc.ShowDialog();
+        }
     }
 }
