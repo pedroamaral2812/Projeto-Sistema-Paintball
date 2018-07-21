@@ -18,7 +18,7 @@ namespace ProjetoPaintball.Modelo
         Conexao con = new Conexao();
 
         //Cria o objeto para receber o dataReader
-        SqlDataReader dr;
+        //SqlDataReader dr;
 
         //Cria metodo para inserir o usuario
         public bool IncluirUsuario(String codUsu, String login, String senha, 

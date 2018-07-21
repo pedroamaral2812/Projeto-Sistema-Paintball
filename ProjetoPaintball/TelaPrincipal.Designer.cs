@@ -33,10 +33,11 @@
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cadastroDeFuncionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,8 @@
             // 
             this.cadastrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroDeUsuárioToolStripMenuItem,
-            this.cadastroDeFuncionárioToolStripMenuItem});
+            this.cadastroDeFuncionárioToolStripMenuItem,
+            this.cadastroDeFuncionáriosToolStripMenuItem});
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
@@ -77,12 +79,6 @@
             this.cadastroDeUsuárioToolStripMenuItem.Text = "Cadastro de Usuário";
             this.cadastroDeUsuárioToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUsuárioToolStripMenuItem_Click);
             // 
-            // consultarToolStripMenuItem
-            // 
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.consultarToolStripMenuItem.Text = "Consultar";
-            // 
             // cadastroDeFuncionárioToolStripMenuItem
             // 
             this.cadastroDeFuncionárioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastroDeFuncionárioToolStripMenuItem.Image")));
@@ -91,6 +87,12 @@
             this.cadastroDeFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.cadastroDeFuncionárioToolStripMenuItem.Text = "Cadastro de cargos de funcionarios";
             this.cadastroDeFuncionárioToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFuncionárioToolStripMenuItem_Click);
+            // 
+            // consultarToolStripMenuItem
+            // 
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // groupBox1
             // 
@@ -108,6 +110,15 @@
             this.groupBox2.Size = new System.Drawing.Size(1344, 500);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // cadastroDeFuncionáriosToolStripMenuItem
+            // 
+            this.cadastroDeFuncionáriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastroDeFuncionáriosToolStripMenuItem.Image")));
+            this.cadastroDeFuncionáriosToolStripMenuItem.Name = "cadastroDeFuncionáriosToolStripMenuItem";
+            this.cadastroDeFuncionáriosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.cadastroDeFuncionáriosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.cadastroDeFuncionáriosToolStripMenuItem.Text = "Cadastro de Funcionários";
+            this.cadastroDeFuncionáriosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFuncionáriosToolStripMenuItem_Click);
             // 
             // TelaPrincipal
             // 
@@ -145,5 +156,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFuncionárioToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeFuncionáriosToolStripMenuItem;
     }
 }
