@@ -60,7 +60,7 @@ namespace ProjetoPaintball
             tboxTelFunc.Text = "";
             tboxTel2Func.Text = "";
             tboxCPFFunc.Text = "";
-            cklistBoxSexo.Text = "";
+            tboxCNHFunc.Text = "";
             mkdDtCad.Text = "";
             mkdDtDesl.Text = "";
 
@@ -87,13 +87,12 @@ namespace ProjetoPaintball
 
             //Monta a query para verificar se existe o funcionario
             cmd.CommandText = " SELECT * " +
-                      " FROM SGJP_FUNCIONARIO JOIN SGJP_CARGOFUNC ON SGJP_USUPAINTBALL = PAINTBALL_CODIGO " +
-                      " WHERE SGJP_USUID  = @ID AND " +
-                            " SGJP_USUPAINTBALL = @paintball ";
-
+                      " FROM SGJP_FUNCIONARIO" +  //JOIN SGJP_CARGOFUNC ON SGJP_USUPAINTBALL = SGJP_FUNCPAINTBALL " +
+                      " WHERE SGJP_FUNCCOD  = @ID";
+                            //" AND SGJP_USUPAINTBALL = @paintball ";
 
             //Passa as informações pelo parametro
-            //cmd.Parameters.AddWithValue("@ID", tboxCodUsu.Text);
+            cmd.Parameters.AddWithValue("@ID", tboxCodFunc.Text);
             //cmd.Parameters.AddWithValue("@paintball", loginDAOComando.varpub_string_CodPaintball);
 
             try
@@ -121,14 +120,16 @@ namespace ProjetoPaintball
                         else
                         {
                             // Insere as informações no text box
-                            tboxNomeUsu.Text = dr["SGJP_USUNOME"].ToString();
-                            tboxEmail.Text = dr["SGJP_USUEMAIL"].ToString();
-                            maskedCPF.Text = dr["SGJP_CPF"].ToString();
-                            maskedRG.Text = dr["SGJP_RG"].ToString();
-                            tboxTelefone.Text = dr["SGJP_USUFONE"].ToString();
-                            tboxTelefone2.Text = dr["SGJP_USUFONE2"].ToString();
-                            tboxLogin.Text = dr["SGJP_USULOGIN"].ToString();
-                            tboxSenha.Text = dr["SGJP_USUSENHA"].ToString();
+                            tboxNomeFunc.Text     = dr["SGJP_FUNCNOME"].ToString();
+                            tboxTelFunc.Text      = dr["SGJP_FUNCFONE"].ToString();
+                            tboxTel2Func.Text     = dr["SGJP_FUNCFONE2"].ToString();
+                            tboxCPFFunc.Text      = dr["SGJP_FUNCCPF"].ToString();
+                            tboxRGFunc.Text       = dr["SGJP_FUNCRG"].ToString();
+                            tboxCNHFunc.Text      = dr["SGJP_FUNCCNH"].ToString();
+                            mkdDtCad.Text         = dr["SGJP_FUNCDTCAD"].ToString();
+                            mkdDtDesl.Text        = dr["SGJP_FUNCDTDESL"].ToString();
+                            tboxEnderecoFunc.Text = dr["SGJP_FUNCENDERECO"].ToString();
+
 
                             //Libera os botões
                             btnAlterar.Enabled = true;
@@ -138,11 +139,12 @@ namespace ProjetoPaintball
                             //Desativao botão de incluir
                             btnCadastrar.Enabled = false;
 
-                            //Libera o check box
-                            ckboxMostraSenha.Enabled = true;
-
                             //Mudar a cor do text box
-                            tboxCodUsu.BackColor = Color.White;
+                            tboxCodFunc.BackColor = Color.White;
+
+                            //Faz o leave do codigo de função
+                            tboxCodCargos.Text = dr["SGJP_FUNCCARGOCOD"].ToString();
+                            tboxCodCargos_Leave(sender,e);
                         }
 
                     }
@@ -150,66 +152,171 @@ namespace ProjetoPaintball
                 else
                 {
                     //Verifica se está preenchido o codigo
-                    if (tboxCodUsu.Text != "")
+                    if (tboxCodFunc.Text != "")
                     {
-
                         //Limpa os texts box
-                        tboxNomeUsu.Text = "";
-                        tboxEmail.Text = "";
-                        maskedCPF.Text = "";
-                        maskedRG.Text = "";
-                        tboxTelefone.Text = "";
-                        tboxTelefone2.Text = "";
-                        tboxLogin.Text = "";
-                        tboxSenha.Text = "";
+                        tboxNomeFunc.Text   = "";
+                        tboxCodCargos.Text  = "";
+                        tboxNomeCargos.Text = "";
+                        tboxTelFunc.Text    = "";
+                        tboxTel2Func.Text   = "";
+                        tboxCPFFunc.Text    = "";
+                        tboxCNHFunc.Text    = "";
+                        mkdDtCad.Text       = "";
+                        mkdDtDesl.Text      = "";
 
                         //Libera os botões
                         btnCadastrar.Enabled = true;
-                        btnLimpar.Enabled = true;
+                        btnLimpar.Enabled    = true;
 
                         //Desativa os botões
                         btnAlterar.Enabled = false;
                         btnExcluir.Enabled = false;
 
-                        //Libera o check box
-                        ckboxMostraSenha.Enabled = true;
-
                         //Mudar a cor do text box
-                        tboxCodUsu.BackColor = Color.White;
-
+                        tboxCodFunc.BackColor = Color.White;
                     }
                     //Se não tiver preenchido o codigo do usuario
                     else
                     {
                         //Limpa os texts box
-                        tboxNomeUsu.Text = "";
-                        tboxEmail.Text = "";
-                        maskedCPF.Text = "";
-                        maskedRG.Text = "";
-                        tboxTelefone.Text = "";
-                        tboxTelefone2.Text = "";
-                        tboxLogin.Text = "";
-                        tboxSenha.Text = "";
+                        tboxNomeFunc.Text   = "";
+                        tboxCodCargos.Text  = "";
+                        tboxNomeCargos.Text = "";
+                        tboxTelFunc.Text    = "";
+                        tboxTel2Func.Text   = "";
+                        tboxCPFFunc.Text    = "";
+                        tboxCNHFunc.Text    = "";
+                        mkdDtCad.Text       = "";
+                        mkdDtDesl.Text      = "";
 
                         //Desativa os botões
                         btnCadastrar.Enabled = false;
-                        btnLimpar.Enabled = false;
-                        btnAlterar.Enabled = false;
-                        btnExcluir.Enabled = false;
-
-                        //Deslibera o check box
-                        ckboxMostraSenha.Enabled = false;
+                        btnLimpar.Enabled    = false;
+                        btnAlterar.Enabled   = false;
+                        btnExcluir.Enabled   = false;
 
                         //Mudar a cor do text box
-                        tboxCodUsu.BackColor = Color.White;
+                        tboxCodFunc.BackColor = Color.White;
                     }
-
                 }
             }
             catch (SqlException)
             {
-                MessageBox.Show("Erro!!!", "Erro na procura do usuario ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Erro!!!", "Erro na procura do funcionario ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+        }
+
+        private void tboxCodFunc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxCodCargos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxTelFunc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxTel2Func_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxCPFFunc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxRGFunc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void mkdDtCad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void mkdDtDesl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Impede de teclar letras e espaços
+            if ((Char.IsLetter(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+
+        private void tboxCodCargos_Leave(object sender, EventArgs e)
+        {
+            //Cria a classe sqlcommand para poder fazer comandos sql.
+            SqlCommand cmd = new SqlCommand();
+
+            //Cria o objeto para conexao
+            Conexao con = new Conexao();
+
+            //Cria o objeto para receber o dataReader
+            SqlDataReader dr;
+
+            //Monta a query para verificar se existe o usuario
+            cmd.CommandText = " SELECT * " +
+                              " FROM SGJP_CARGOFUNC " +
+                              " WHERE SGJP_CARGOFUNCCOD = @CodCargo";
+            //" AND SGJP_CARGOFUNCPAINTBALL = @paintball";
+
+
+            //Passa as informações pelo parametro
+            cmd.Parameters.AddWithValue("@CodCargo", tboxCodCargos.Text);
+            //cmd.Parameters.AddWithValue("@paintball", variavel_global_paintball);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    //Faz um while para gravar as informações em uma variavel 
+                    while (dr.Read())
+                    {
+                        // Insere as informações no text box
+                        tboxNomeCargos.Text = dr["SGJP_CARGOFUNCNOME"].ToString();
+
+                        //Mudar a cor do text box
+                        tboxCodCargos.BackColor = Color.White;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Função/Cargo não existente, por favor digite um código válido","Função/Cargo não existente", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    tboxCodCargos.Focus();
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Erro!!!", "Erro na procura do cargo/função ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

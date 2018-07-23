@@ -143,6 +143,7 @@
             this.dtGridCargoFunc.Location = new System.Drawing.Point(12, 280);
             this.dtGridCargoFunc.Name = "dtGridCargoFunc";
             this.dtGridCargoFunc.ReadOnly = true;
+            this.dtGridCargoFunc.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dtGridCargoFunc.Size = new System.Drawing.Size(668, 149);
             this.dtGridCargoFunc.TabIndex = 0;
             this.dtGridCargoFunc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridCargoFunc_CellContentClick);
@@ -274,6 +275,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CadCargoFunc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de cargo de funcionário";
             this.Load += new System.EventHandler(this.CadCargoFunc_Load);
             this.Enter += new System.EventHandler(this.CadCargoFunc_Enter);

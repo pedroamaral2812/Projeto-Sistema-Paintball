@@ -51,6 +51,12 @@
     <Compile Include="CadCargoFunc.Designer.cs">
       <DependentUpon>CadCargoFunc.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadFunc.Designer.cs">
+      <DependentUpon>CadFunc.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="CadCargoFunc.resx">
       <DependentUpon>CadCargoFunc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadFunc.resx">
+      <DependentUpon>CadFunc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadUsuario.resx">
       <DependentUpon>CadUsuario.cs</DependentUpon>

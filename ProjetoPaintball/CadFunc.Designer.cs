@@ -40,20 +40,22 @@
             this.tboxCodCargos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tboxTelFunc = new System.Windows.Forms.TextBox();
-            this.tboxTel2Func = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tboxCPFFunc = new System.Windows.Forms.TextBox();
-            this.tboxRGFunc = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.mkdDtCad = new System.Windows.Forms.MaskedTextBox();
+            this.tboxCNHFunc = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tboxEnderecoFunc = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.mkdDtDesl = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cklistBoxSexo = new System.Windows.Forms.CheckedListBox();
+            this.mkdDtCad = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tboxRGFunc = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tboxCPFFunc = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tboxTel2Func = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tboxTelFunc = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -101,6 +103,7 @@
             this.tboxCodFunc.Name = "tboxCodFunc";
             this.tboxCodFunc.Size = new System.Drawing.Size(66, 26);
             this.tboxCodFunc.TabIndex = 1;
+            this.tboxCodFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCodFunc_KeyPress);
             this.tboxCodFunc.Leave += new System.EventHandler(this.tboxCodFunc_Leave);
             // 
             // label1
@@ -128,6 +131,7 @@
             // 
             // tboxNomeCargos
             // 
+            this.tboxNomeCargos.Enabled = false;
             this.tboxNomeCargos.Location = new System.Drawing.Point(326, 29);
             this.tboxNomeCargos.Name = "tboxNomeCargos";
             this.tboxNomeCargos.Size = new System.Drawing.Size(335, 26);
@@ -148,6 +152,8 @@
             this.tboxCodCargos.Name = "tboxCodCargos";
             this.tboxCodCargos.Size = new System.Drawing.Size(66, 26);
             this.tboxCodCargos.TabIndex = 5;
+            this.tboxCodCargos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCodCargos_KeyPress);
+            this.tboxCodCargos.Leave += new System.EventHandler(this.tboxCodCargos_Leave);
             // 
             // label4
             // 
@@ -160,7 +166,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cklistBoxSexo);
+            this.groupBox3.Controls.Add(this.tboxCNHFunc);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.tboxEnderecoFunc);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.mkdDtDesl);
             this.groupBox3.Controls.Add(this.label10);
@@ -177,43 +185,103 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(17, 193);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(664, 164);
+            this.groupBox3.Size = new System.Drawing.Size(664, 224);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados";
             // 
-            // label5
+            // tboxCNHFunc
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "*Telefone: ";
+            this.tboxCNHFunc.Location = new System.Drawing.Point(447, 73);
+            this.tboxCNHFunc.Name = "tboxCNHFunc";
+            this.tboxCNHFunc.Size = new System.Drawing.Size(206, 26);
+            this.tboxCNHFunc.TabIndex = 15;
             // 
-            // tboxTelFunc
+            // label13
             // 
-            this.tboxTelFunc.Location = new System.Drawing.Point(110, 29);
-            this.tboxTelFunc.Name = "tboxTelFunc";
-            this.tboxTelFunc.Size = new System.Drawing.Size(204, 26);
-            this.tboxTelFunc.TabIndex = 1;
-            this.tboxTelFunc.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(391, 76);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(51, 20);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "CNH:";
             // 
-            // tboxTel2Func
+            // tboxEnderecoFunc
             // 
-            this.tboxTel2Func.Location = new System.Drawing.Point(432, 29);
-            this.tboxTel2Func.Name = "tboxTel2Func";
-            this.tboxTel2Func.Size = new System.Drawing.Size(221, 26);
-            this.tboxTel2Func.TabIndex = 3;
+            this.tboxEnderecoFunc.Location = new System.Drawing.Point(120, 168);
+            this.tboxEnderecoFunc.Name = "tboxEnderecoFunc";
+            this.tboxEnderecoFunc.Size = new System.Drawing.Size(532, 26);
+            this.tboxEnderecoFunc.TabIndex = 13;
             // 
-            // label6
+            // label11
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(330, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 20);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Telefone 2: ";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(23, 170);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 20);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "*Endereço:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // mkdDtDesl
+            // 
+            this.mkdDtDesl.Location = new System.Drawing.Point(515, 119);
+            this.mkdDtDesl.Name = "mkdDtDesl";
+            this.mkdDtDesl.Size = new System.Drawing.Size(138, 26);
+            this.mkdDtDesl.TabIndex = 11;
+            this.mkdDtDesl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mkdDtDesl_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(316, 122);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(193, 20);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Data de Desligamento:";
+            // 
+            // mkdDtCad
+            // 
+            this.mkdDtCad.Location = new System.Drawing.Point(178, 119);
+            this.mkdDtCad.Name = "mkdDtCad";
+            this.mkdDtCad.Size = new System.Drawing.Size(134, 26);
+            this.mkdDtCad.TabIndex = 9;
+            this.mkdDtCad.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.mkdDtCad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mkdDtCad_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(163, 20);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "*Data de Cadastro:";
+            // 
+            // tboxRGFunc
+            // 
+            this.tboxRGFunc.Location = new System.Drawing.Point(265, 73);
+            this.tboxRGFunc.Name = "tboxRGFunc";
+            this.tboxRGFunc.Size = new System.Drawing.Size(114, 26);
+            this.tboxRGFunc.TabIndex = 7;
+            this.tboxRGFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxRGFunc_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(220, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 20);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "RG: ";
+            // 
+            // tboxCPFFunc
+            // 
+            this.tboxCPFFunc.Location = new System.Drawing.Point(74, 73);
+            this.tboxCPFFunc.Name = "tboxCPFFunc";
+            this.tboxCPFFunc.Size = new System.Drawing.Size(136, 26);
+            this.tboxCPFFunc.TabIndex = 5;
+            this.tboxCPFFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCPFFunc_KeyPress);
             // 
             // label7
             // 
@@ -225,88 +293,46 @@
             this.label7.Text = "*CPF: ";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // tboxCPFFunc
+            // tboxTel2Func
             // 
-            this.tboxCPFFunc.Location = new System.Drawing.Point(74, 73);
-            this.tboxCPFFunc.Name = "tboxCPFFunc";
-            this.tboxCPFFunc.Size = new System.Drawing.Size(136, 26);
-            this.tboxCPFFunc.TabIndex = 5;
+            this.tboxTel2Func.Location = new System.Drawing.Point(432, 29);
+            this.tboxTel2Func.Name = "tboxTel2Func";
+            this.tboxTel2Func.Size = new System.Drawing.Size(221, 26);
+            this.tboxTel2Func.TabIndex = 3;
+            this.tboxTel2Func.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTel2Func_KeyPress);
             // 
-            // tboxRGFunc
+            // label6
             // 
-            this.tboxRGFunc.Location = new System.Drawing.Point(265, 73);
-            this.tboxRGFunc.Name = "tboxRGFunc";
-            this.tboxRGFunc.Size = new System.Drawing.Size(114, 26);
-            this.tboxRGFunc.TabIndex = 7;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(330, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 20);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Telefone 2: ";
             // 
-            // label8
+            // tboxTelFunc
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 76);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 20);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "RG: ";
+            this.tboxTelFunc.Location = new System.Drawing.Point(110, 29);
+            this.tboxTelFunc.Name = "tboxTelFunc";
+            this.tboxTelFunc.Size = new System.Drawing.Size(204, 26);
+            this.tboxTelFunc.TabIndex = 1;
+            this.tboxTelFunc.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.tboxTelFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTelFunc_KeyPress);
             // 
-            // label9
+            // label5
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 122);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(163, 20);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "*Data de Cadastro:";
-            // 
-            // mkdDtCad
-            // 
-            this.mkdDtCad.Location = new System.Drawing.Point(178, 119);
-            this.mkdDtCad.Name = "mkdDtCad";
-            this.mkdDtCad.Size = new System.Drawing.Size(134, 26);
-            this.mkdDtCad.TabIndex = 9;
-            this.mkdDtCad.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // mkdDtDesl
-            // 
-            this.mkdDtDesl.Location = new System.Drawing.Point(515, 119);
-            this.mkdDtDesl.Name = "mkdDtDesl";
-            this.mkdDtDesl.Size = new System.Drawing.Size(138, 26);
-            this.mkdDtDesl.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(316, 122);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(193, 20);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Data de Desligamento:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(400, 76);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 20);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Sexo: ";
-            // 
-            // cklistBoxSexo
-            // 
-            this.cklistBoxSexo.FormattingEnabled = true;
-            this.cklistBoxSexo.Items.AddRange(new object[] {
-            "Masculino",
-            "Feminino"});
-            this.cklistBoxSexo.Location = new System.Drawing.Point(474, 80);
-            this.cklistBoxSexo.Name = "cklistBoxSexo";
-            this.cklistBoxSexo.Size = new System.Drawing.Size(178, 4);
-            this.cklistBoxSexo.TabIndex = 13;
-            this.cklistBoxSexo.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "*Telefone: ";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(14, 371);
+            this.label12.Location = new System.Drawing.Point(14, 433);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(163, 17);
             this.label12.TabIndex = 21;
@@ -320,7 +346,7 @@
             this.btnLimpar.Enabled = false;
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpar.Location = new System.Drawing.Point(543, 405);
+            this.btnLimpar.Location = new System.Drawing.Point(543, 467);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(139, 35);
             this.btnLimpar.TabIndex = 20;
@@ -333,7 +359,7 @@
             // 
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(413, 405);
+            this.btnSair.Location = new System.Drawing.Point(413, 467);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(134, 35);
             this.btnSair.TabIndex = 19;
@@ -346,7 +372,7 @@
             this.btnExcluir.Enabled = false;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(282, 405);
+            this.btnExcluir.Location = new System.Drawing.Point(282, 467);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(135, 35);
             this.btnExcluir.TabIndex = 18;
@@ -358,7 +384,7 @@
             this.btnAlterar.Enabled = false;
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.Location = new System.Drawing.Point(152, 405);
+            this.btnAlterar.Location = new System.Drawing.Point(152, 467);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(132, 35);
             this.btnAlterar.TabIndex = 17;
@@ -370,7 +396,7 @@
             this.btnCadastrar.Enabled = false;
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(17, 405);
+            this.btnCadastrar.Location = new System.Drawing.Point(17, 467);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(138, 35);
             this.btnCadastrar.TabIndex = 16;
@@ -381,7 +407,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 462);
+            this.ClientSize = new System.Drawing.Size(694, 511);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSair);
@@ -433,13 +459,15 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox mkdDtDesl;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckedListBox cklistBoxSexo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tboxEnderecoFunc;
+        private System.Windows.Forms.TextBox tboxCNHFunc;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -24,22 +24,19 @@ namespace ProjetoPaintball.Modelo
                                             String DescCargo)
         {
             //Monta a query para inserir um novo usuario
-            cmd.CommandText = "SET IDENTITY_INSERT SGJP_CARGOFUNC on " +
-                              "INSERT INTO[dbo].[SGJP_CARGOFUNC] " +
+            cmd.CommandText = "INSERT INTO [dbo].[SGJP_CARGOFUNC] " +
                               "([SGJP_CARGOFUNCCOD], " +
-                               "[SGJP_CARGOFUNCNOME], " +
-                               "[SGJP_CARGOFUNCDESC], " +
-                               "[SGJP_CARGOFUNCPAINTBALL]) " +
+                              "[SGJP_CARGOFUNCNOME], " +
+                              "[SGJP_CARGOFUNCDESC], " +
+                              "[SGJP_CARGOFUNCPAINTBALL]) " +
 
                                 " VALUES " +
 
-                               "(@CodCargoFunc, " +
-                               " @nomeCargoFunc, " +
-                               " @descCargoFunc, " +
-                               //" @paintball) "
-                               " 0) " +
-                               " SET IDENTITY_INSERT SGJP_CARGOFUNC OFF";
-
+                              "(@CodCargoFunc, " +
+                              "@nomeCargoFunc, " +
+                              "@descCargoFunc, " +
+                              "0)";
+                              
             //Passa as informações pelo parametro           
             cmd.Parameters.AddWithValue("@CodCargoFunc", codCargoFunc);
             cmd.Parameters.AddWithValue("@nomeCargoFunc", nomeCargo);

@@ -143,9 +143,9 @@ namespace ProjetoPaintball
                         
                         //Desativa os botões
                         btnCadastrar.Enabled = false;
-                        btnLimpar.Enabled = false;
-                        btnAlterar.Enabled = false;
-                        btnExcluir.Enabled = false;
+                        btnLimpar.Enabled    = false;
+                        btnAlterar.Enabled   = false;
+                        btnExcluir.Enabled   = false;
 
                         //Mudar a cor do text box
                         tboxCodCargo.BackColor = Color.White;
@@ -197,6 +197,9 @@ namespace ProjetoPaintball
                     //Chama o função de clicar no botão limpar
                     btnLimpar_Click(sender, e);
 
+                    //Dá um refresh na tabela
+                    this.sGJP_CARGOFUNCTableAdapter.Fill(this.sGJPDataSet.SGJP_CARGOFUNC);
+
                 }
                 //Se não excluiu corretamente o usuario
                 else
@@ -237,6 +240,8 @@ namespace ProjetoPaintball
 
                     //Chama o função de clicar no botão limpar
                     btnLimpar_Click(sender, e);
+
+                    this.sGJP_CARGOFUNCTableAdapter.Fill(this.sGJPDataSet.SGJP_CARGOFUNC);
                 }
                 //Se não adicionou corretamente o usuario
                 else
@@ -269,6 +274,9 @@ namespace ProjetoPaintball
 
                     //Chama o função de clicar no botão limpar
                     btnLimpar_Click(sender, e);
+
+                    //Dá um refresh na tabela
+                    this.sGJP_CARGOFUNCTableAdapter.Fill(this.sGJPDataSet.SGJP_CARGOFUNC);
                 }
                 //Se não alterou corretamente o usuario
                 else
