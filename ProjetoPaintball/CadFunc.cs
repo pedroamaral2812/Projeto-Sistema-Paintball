@@ -1,4 +1,5 @@
 ﻿using ProjetoPaintball.DAO;
+using ProjetoPaintball.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,9 +61,11 @@ namespace ProjetoPaintball
             tboxTelFunc.Text = "";
             tboxTel2Func.Text = "";
             tboxCPFFunc.Text = "";
+            tboxRGFunc.Text = "";
             tboxCNHFunc.Text = "";
             mkdDtCad.Text = "";
             mkdDtDesl.Text = "";
+            tboxEnderecoFunc.Text = "";
 
             //Desativa os botões
             btnCadastrar.Enabled = false;
@@ -142,7 +145,7 @@ namespace ProjetoPaintball
                             //Mudar a cor do text box
                             tboxCodFunc.BackColor = Color.White;
 
-                            //Faz o leave do codigo de função
+                            //Preenche o codigo do cargo e faz o leave do codigo de função
                             tboxCodCargos.Text = dr["SGJP_FUNCCARGOCOD"].ToString();
                             tboxCodCargos_Leave(sender,e);
                         }
@@ -155,15 +158,17 @@ namespace ProjetoPaintball
                     if (tboxCodFunc.Text != "")
                     {
                         //Limpa os texts box
-                        tboxNomeFunc.Text   = "";
-                        tboxCodCargos.Text  = "";
-                        tboxNomeCargos.Text = "";
-                        tboxTelFunc.Text    = "";
-                        tboxTel2Func.Text   = "";
-                        tboxCPFFunc.Text    = "";
-                        tboxCNHFunc.Text    = "";
-                        mkdDtCad.Text       = "";
-                        mkdDtDesl.Text      = "";
+                        tboxNomeFunc.Text     = "";
+                        tboxCodCargos.Text    = "";
+                        tboxNomeCargos.Text   = "";
+                        tboxTelFunc.Text      = "";
+                        tboxTel2Func.Text     = "";
+                        tboxCPFFunc.Text      = "";
+                        tboxRGFunc.Text       = "";
+                        tboxCNHFunc.Text      = "";
+                        mkdDtCad.Text         = "";
+                        mkdDtDesl.Text        = "";
+                        tboxEnderecoFunc.Text = "";
 
                         //Libera os botões
                         btnCadastrar.Enabled = true;
@@ -180,15 +185,17 @@ namespace ProjetoPaintball
                     else
                     {
                         //Limpa os texts box
-                        tboxNomeFunc.Text   = "";
-                        tboxCodCargos.Text  = "";
-                        tboxNomeCargos.Text = "";
-                        tboxTelFunc.Text    = "";
-                        tboxTel2Func.Text   = "";
-                        tboxCPFFunc.Text    = "";
-                        tboxCNHFunc.Text    = "";
-                        mkdDtCad.Text       = "";
-                        mkdDtDesl.Text      = "";
+                        tboxNomeFunc.Text     = "";
+                        tboxCodCargos.Text    = "";
+                        tboxNomeCargos.Text   = "";
+                        tboxTelFunc.Text      = "";
+                        tboxTel2Func.Text     = "";
+                        tboxCPFFunc.Text      = "";
+                        tboxRGFunc.Text       = "";
+                        tboxCNHFunc.Text      = "";
+                        mkdDtCad.Text         = "";
+                        mkdDtDesl.Text        = "";
+                        tboxEnderecoFunc.Text = "";
 
                         //Desativa os botões
                         btnCadastrar.Enabled = false;
@@ -300,12 +307,15 @@ namespace ProjetoPaintball
 
                         //Mudar a cor do text box
                         tboxCodCargos.BackColor = Color.White;
+
                     }
                 }
                 else
                 {
                     MessageBox.Show("Função/Cargo não existente, por favor digite um código válido","Função/Cargo não existente", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     tboxCodCargos.Focus();
+                   
+                   
                 }
             }
             catch (SqlException)
@@ -317,6 +327,101 @@ namespace ProjetoPaintball
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            CadFuncionarioModel cadFuncionarioModel = new CadFuncionarioModel();
+
+            //Verifica se preencheu os campos obrigatorios
+            if ((tboxNomeFunc.TextLength < 1) || (tboxCodCargos.TextLength< 1) ||
+                (tboxTelFunc.TextLength < 1)  || (tboxCPFFunc.TextLength < 1)  ||
+                (mkdDtCad.TextLength < 1 )    || (tboxEnderecoFunc.TextLength<1)) 
+            {
+                MessageBox.Show("Atenção preencha os campos obrigátorios!!", "Campos obrigatorios não preenchidos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            //Se preencheu todos os campos obrigatórios
+            else
+            {
+                //Verifica se adicionou com sucesso o funcionario
+                if(cadFuncionarioModel.InserirFuncionario(tboxCodFunc.Text, tboxNomeFunc.Text, tboxCodCargos.Text,
+                                                          tboxCPFFunc.Text, tboxRGFunc.Text, tboxCNHFunc.Text, tboxTelFunc.Text, tboxTel2Func.Text,
+                                                          tboxEnderecoFunc.Text, mkdDtCad.Text, mkdDtDesl.Text))
+                {
+                    MessageBox.Show("Funcionario adicionado com sucesso!!", "Exito ao adicionar o Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Chama o função de clicar no botão limpar
+                    btnLimpar_Click(sender, e);
+                }
+                //Se não adicionou corretamente o Funcionario
+                else
+                {
+                    MessageBox.Show("Problemas ao adicionar o Funcionario, favor verificar!!", "Problemas ao adicionar o Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            CadFuncionarioModel cadFuncionarioModel = new CadFuncionarioModel();
+
+            //Verifica se preencheu os campos obrigatorios
+            if ((tboxNomeFunc.TextLength < 1) || (tboxCodCargos.TextLength < 1) ||
+                (tboxTelFunc.TextLength < 1) || (tboxCPFFunc.TextLength < 1) ||
+                (mkdDtCad.TextLength < 1) || (tboxEnderecoFunc.TextLength < 1))
+            {
+                MessageBox.Show("Atenção preencha os campos obrigátorios!!", "Campos obrigatorios não preenchidos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            //Se preencheu todos os campos obrigatórios
+            else
+            {
+                //Verifica se alterou com sucesso o funcionario
+                if (cadFuncionarioModel.AlterarFuncionario(tboxCodFunc.Text, tboxNomeFunc.Text, tboxCodCargos.Text,
+                                                          tboxCPFFunc.Text, tboxRGFunc.Text, tboxCNHFunc.Text, tboxTelFunc.Text, tboxTel2Func.Text,
+                                                          tboxEnderecoFunc.Text, mkdDtCad.Text, mkdDtDesl.Text))
+                {
+                    MessageBox.Show("Funcionario alterado com sucesso!!", "Exito ao alterar o Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Chama o função de clicar no botão limpar
+                    btnLimpar_Click(sender, e);
+                }
+                //Se não alterou corretamente o Funcionario
+                else
+                {
+                    MessageBox.Show("Problemas ao alterar o Funcionario, favor verificar!!", "Problemas ao alterar o Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            CadFuncionarioModel cadFuncionarioModel = new CadFuncionarioModel();
+
+            //Verifica se preencheu os campos obrigatorios
+            if (tboxCodFunc.TextLength < 1)
+            {
+                MessageBox.Show("Atenção preencha os campos obrigátorios!!", "Campos obrigatorios não preenchidos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            //Se preencheu todos os campos obrigatórios
+            else
+            {
+                //Verifica se excluiu com sucesso o funcionario
+                if (cadFuncionarioModel.ExcluirFuncionario(tboxCodFunc.Text))
+                {
+                    MessageBox.Show("Funcionario excluido com sucesso!!", "Exito ao excluir o Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Chama o função de clicar no botão limpar
+                    btnLimpar_Click(sender, e);
+                }
+                //Se não excluiu corretamente o Funcionario
+                else
+                {
+                    MessageBox.Show("Problemas ao excluir o Funcionario, favor verificar!!", "Problemas ao excluir o Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
     }
 }

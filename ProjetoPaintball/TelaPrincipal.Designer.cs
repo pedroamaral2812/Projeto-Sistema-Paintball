@@ -34,10 +34,10 @@
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeFuncionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cadastroDeFuncionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +88,15 @@
             this.cadastroDeFuncionárioToolStripMenuItem.Text = "Cadastro de cargos de funcionarios";
             this.cadastroDeFuncionárioToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFuncionárioToolStripMenuItem_Click);
             // 
+            // cadastroDeFuncionáriosToolStripMenuItem
+            // 
+            this.cadastroDeFuncionáriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastroDeFuncionáriosToolStripMenuItem.Image")));
+            this.cadastroDeFuncionáriosToolStripMenuItem.Name = "cadastroDeFuncionáriosToolStripMenuItem";
+            this.cadastroDeFuncionáriosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.cadastroDeFuncionáriosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.cadastroDeFuncionáriosToolStripMenuItem.Text = "Cadastro de Funcionários";
+            this.cadastroDeFuncionáriosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFuncionáriosToolStripMenuItem_Click);
+            // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
@@ -105,20 +114,11 @@
             // groupBox2
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
-            this.groupBox2.Location = new System.Drawing.Point(11, 183);
+            this.groupBox2.Location = new System.Drawing.Point(0, 183);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1344, 500);
+            this.groupBox2.Size = new System.Drawing.Size(1367, 500);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            // 
-            // cadastroDeFuncionáriosToolStripMenuItem
-            // 
-            this.cadastroDeFuncionáriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastroDeFuncionáriosToolStripMenuItem.Image")));
-            this.cadastroDeFuncionáriosToolStripMenuItem.Name = "cadastroDeFuncionáriosToolStripMenuItem";
-            this.cadastroDeFuncionáriosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.cadastroDeFuncionáriosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
-            this.cadastroDeFuncionáriosToolStripMenuItem.Text = "Cadastro de Funcionários";
-            this.cadastroDeFuncionáriosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFuncionáriosToolStripMenuItem_Click);
             // 
             // TelaPrincipal
             // 

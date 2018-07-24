@@ -113,8 +113,6 @@ namespace ProjetoPaintball.Modelo
             {
                 return false;
             }
-
-
         }
 
     }
