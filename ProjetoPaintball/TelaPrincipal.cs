@@ -58,5 +58,12 @@ namespace ProjetoPaintball
             CadFunc cadFunc = new CadFunc();
             cadFunc.ShowDialog();
         }
+
+        private void cadastroDeArmasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Chama a tela de cadastro de tipo de arma
+            CadTipoArma cadTipoArma = new CadTipoArma();
+            cadTipoArma.ShowDialog();
+        }
     }
 }

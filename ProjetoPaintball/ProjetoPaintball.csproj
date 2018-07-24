@@ -57,6 +57,12 @@
     <Compile Include="CadFunc.Designer.cs">
       <DependentUpon>CadFunc.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadTipoArma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadTipoArma.Designer.cs">
+      <DependentUpon>CadTipoArma.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,7 @@
     </Compile>
     <Compile Include="Modelo\CadCargoFuncModel.cs" />
     <Compile Include="Modelo\CadFuncionarioModel.cs" />
+    <Compile Include="Modelo\CadTPArmaModel.cs" />
     <Compile Include="Modelo\CadUsuModel.cs" />
     <Compile Include="Modelo\ControleLogin.cs" />
     <Compile Include="Program.cs" />
@@ -86,6 +93,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SGJPDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SGJPDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGJPDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadFunc.resx">
       <DependentUpon>CadFunc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadTipoArma.resx">
+      <DependentUpon>CadTipoArma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadUsuario.resx">
       <DependentUpon>CadUsuario.cs</DependentUpon>
@@ -138,6 +153,17 @@
     </None>
     <None Include="SGJPDataSet.xss">
       <DependentUpon>SGJPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SGJPDataSet1.xsc">
+      <DependentUpon>SGJPDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SGJPDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGJPDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGJPDataSet1.xss">
+      <DependentUpon>SGJPDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

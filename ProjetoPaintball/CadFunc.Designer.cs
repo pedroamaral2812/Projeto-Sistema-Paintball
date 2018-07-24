@@ -111,9 +111,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Código: ";
+            this.label1.Text = "*Código: ";
             // 
             // groupBox2
             // 
@@ -142,9 +142,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(177, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 20);
+            this.label3.Size = new System.Drawing.Size(140, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "*Nome do cargo: ";
+            this.label3.Text = "Nome do cargo: ";
             // 
             // tboxCodCargos
             // 
@@ -160,9 +160,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(21, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Código: ";
+            this.label4.Text = "*Código: ";
             // 
             // groupBox3
             // 
@@ -195,7 +195,7 @@
             this.tboxCNHFunc.Location = new System.Drawing.Point(447, 73);
             this.tboxCNHFunc.Name = "tboxCNHFunc";
             this.tboxCNHFunc.Size = new System.Drawing.Size(206, 26);
-            this.tboxCNHFunc.TabIndex = 15;
+            this.tboxCNHFunc.TabIndex = 5;
             // 
             // label13
             // 
@@ -211,7 +211,7 @@
             this.tboxEnderecoFunc.Location = new System.Drawing.Point(120, 168);
             this.tboxEnderecoFunc.Name = "tboxEnderecoFunc";
             this.tboxEnderecoFunc.Size = new System.Drawing.Size(532, 26);
-            this.tboxEnderecoFunc.TabIndex = 13;
+            this.tboxEnderecoFunc.TabIndex = 8;
             // 
             // label11
             // 
@@ -226,9 +226,11 @@
             // mkdDtDesl
             // 
             this.mkdDtDesl.Location = new System.Drawing.Point(515, 119);
+            this.mkdDtDesl.Mask = "00/00/0000";
             this.mkdDtDesl.Name = "mkdDtDesl";
             this.mkdDtDesl.Size = new System.Drawing.Size(138, 26);
-            this.mkdDtDesl.TabIndex = 11;
+            this.mkdDtDesl.TabIndex = 7;
+            this.mkdDtDesl.ValidatingType = typeof(System.DateTime);
             this.mkdDtDesl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mkdDtDesl_KeyPress);
             // 
             // label10
@@ -243,9 +245,11 @@
             // mkdDtCad
             // 
             this.mkdDtCad.Location = new System.Drawing.Point(178, 119);
+            this.mkdDtCad.Mask = "00/00/0000";
             this.mkdDtCad.Name = "mkdDtCad";
             this.mkdDtCad.Size = new System.Drawing.Size(134, 26);
-            this.mkdDtCad.TabIndex = 9;
+            this.mkdDtCad.TabIndex = 6;
+            this.mkdDtCad.ValidatingType = typeof(System.DateTime);
             this.mkdDtCad.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             this.mkdDtCad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mkdDtCad_KeyPress);
             // 
@@ -263,7 +267,7 @@
             this.tboxRGFunc.Location = new System.Drawing.Point(265, 73);
             this.tboxRGFunc.Name = "tboxRGFunc";
             this.tboxRGFunc.Size = new System.Drawing.Size(114, 26);
-            this.tboxRGFunc.TabIndex = 7;
+            this.tboxRGFunc.TabIndex = 4;
             this.tboxRGFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxRGFunc_KeyPress);
             // 
             // label8
@@ -280,7 +284,7 @@
             this.tboxCPFFunc.Location = new System.Drawing.Point(74, 73);
             this.tboxCPFFunc.Name = "tboxCPFFunc";
             this.tboxCPFFunc.Size = new System.Drawing.Size(136, 26);
-            this.tboxCPFFunc.TabIndex = 5;
+            this.tboxCPFFunc.TabIndex = 3;
             this.tboxCPFFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCPFFunc_KeyPress);
             // 
             // label7
@@ -298,7 +302,7 @@
             this.tboxTel2Func.Location = new System.Drawing.Point(432, 29);
             this.tboxTel2Func.Name = "tboxTel2Func";
             this.tboxTel2Func.Size = new System.Drawing.Size(221, 26);
-            this.tboxTel2Func.TabIndex = 3;
+            this.tboxTel2Func.TabIndex = 2;
             this.tboxTel2Func.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxTel2Func_KeyPress);
             // 
             // label6

@@ -38,6 +38,11 @@
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cadastroDeArmasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeEquipamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeOutrosUtensiliosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +70,12 @@
             this.cadastrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroDeUsuárioToolStripMenuItem,
             this.cadastroDeFuncionárioToolStripMenuItem,
-            this.cadastroDeFuncionáriosToolStripMenuItem});
+            this.cadastroDeFuncionáriosToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.cadastroDeArmasToolStripMenuItem,
+            this.cadastroDeEquipamentoToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.cadastroDeOutrosUtensiliosToolStripMenuItem});
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
@@ -120,6 +130,36 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(299, 6);
+            // 
+            // cadastroDeArmasToolStripMenuItem
+            // 
+            this.cadastroDeArmasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastroDeArmasToolStripMenuItem.Image")));
+            this.cadastroDeArmasToolStripMenuItem.Name = "cadastroDeArmasToolStripMenuItem";
+            this.cadastroDeArmasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.cadastroDeArmasToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.cadastroDeArmasToolStripMenuItem.Text = "Cadastro de Tipo de Armas";
+            this.cadastroDeArmasToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeArmasToolStripMenuItem_Click);
+            // 
+            // cadastroDeEquipamentoToolStripMenuItem
+            // 
+            this.cadastroDeEquipamentoToolStripMenuItem.Name = "cadastroDeEquipamentoToolStripMenuItem";
+            this.cadastroDeEquipamentoToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.cadastroDeEquipamentoToolStripMenuItem.Text = "Cadastro de Armas";
+            // 
+            // cadastroDeOutrosUtensiliosToolStripMenuItem
+            // 
+            this.cadastroDeOutrosUtensiliosToolStripMenuItem.Name = "cadastroDeOutrosUtensiliosToolStripMenuItem";
+            this.cadastroDeOutrosUtensiliosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(299, 6);
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,5 +197,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFuncionáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeArmasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeEquipamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeOutrosUtensiliosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
